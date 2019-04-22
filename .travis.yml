@@ -11,6 +11,7 @@ before_script:
   - touch storage/testing.sqlite
   - composer update -n --prefer-dist
   - php artisan migrate --env=testing --database=sqlite_testing --force
+  - php artisan config:clear
   - ./vendor/bin/codecept build
 
 script:

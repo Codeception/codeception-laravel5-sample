@@ -9,10 +9,7 @@ php:
 before_script:
   - composer self-update
   - touch storage/testing.sqlite
-  - touch storage/database.sqlite
   - composer update -n --prefer-dist
-  - php artisan key:generate -q
-  - php artisan cache:clear
   - php artisan migrate --env=testing --database=sqlite_testing --force
   - ./vendor/bin/codecept build
 
